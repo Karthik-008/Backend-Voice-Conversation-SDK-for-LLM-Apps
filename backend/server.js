@@ -47,7 +47,7 @@ app.post('/transcribe', upload.single('audio'), async (req, res) => {
 
   try {
     const audioBuffer = fs.readFileSync(audioFile);
-    const response = await deepgram.listen.prerecorded(
+    const response = await deepgram.transcription.preRecorded(
       { buffer: audioBuffer, mimetype: 'audio/wav' },
       {
         model: 'nova',
